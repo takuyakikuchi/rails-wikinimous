@@ -1,0 +1,17 @@
+<h1>Article List</h1>
+
+<ul>
+  <% @articles.each do |article| %>
+    <li>
+      <%= link_to article_path(article) do  %>
+        <%= article.title%>
+      <% end %>
+      created at:<%= article.created_at%>
+      <%= link_to article_path(article), method: :delete, data: { confirm: "Are you sure?" } do %>
+        Delete
+      <% end %>
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to "Add new article", new_article_path  %>
